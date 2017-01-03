@@ -84,7 +84,7 @@ app.get('/rollback', function (req, res) {
     })
 });
 
-app.get('/all', function (req, response) {
+app.get('/', function (req, response) {
     // appName: string, deploymentName: string, targetRelease?: string
     Promise.all([codePush.getApp(iOS), codePush.getApp(Android)]).then((res) => {
         //console.log(res);
