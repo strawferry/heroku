@@ -8,6 +8,8 @@ let codePush = new CodePush("5oiDFwXaM1M0WdBFpiCD6OHoueTSNJjZ-5v9W");
 const iOS = 'hxlivei';
 const Android = 'hxlivea';
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/getDeploymentMetrics', function (req, res) {
   // req.query.appName  req.query.deploymentName
   codePush.getDeploymentMetrics("hxlivei", 'Store1.2').then((resu)=>{
@@ -179,6 +181,6 @@ app.get('/all', function (req, response) {
 
 
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
